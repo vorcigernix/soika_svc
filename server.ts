@@ -11,7 +11,7 @@ function handleConnected() {
 
 async function handleMessage(ws: WebSocket, data: string) {
   //client needs to send this token, should be improved
-  if (data != "MDEyOk9yZ2FuaXphdGlvbjQyMDQ4OTE1") {
+  if (data != Deno.env.get("token")) {
     console.log("bad token");
     return ws.close();
   }
